@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://5jegchs5ff7y"]
+
+[ext_resource type="Script" uid="uid://cuyohymhkkv41" path="res://good_cat.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://ccktswt8deh6v" path="res://JPG_CATS/cat1.jpg" id="1_epypp"]
+[ext_resource type="Script" uid="uid://5smvxvnh0rbv" path="res://evil_cat.gd" id="2_0hol4"]
+[ext_resource type="FontFile" uid="uid://hwu2m6v3u16x" path="res://GrapeSoda.ttf" id="3_kdubu"]
+[ext_resource type="Texture2D" uid="uid://dd6ffydbkryd" path="res://JPG_CATS/cat_scary.jpg" id="3_q6r6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(144, 146)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="goodCat" type="CharacterBody2D" parent="."]
+position = Vector2(132, 113)
+script = ExtResource("1_0hol4")
+
+[node name="GC_prite2D" type="Sprite2D" parent="goodCat"]
+position = Vector2(905, 444)
+scale = Vector2(0.2, 0.18863)
+texture = ExtResource("1_epypp")
+
+[node name="Area2D" type="Area2D" parent="goodCat" groups=["evilCat", "goodCat"]]
+position = Vector2(726, 282)
+
+[node name="GC_CollisionShape2D" type="CollisionShape2D" parent="goodCat/Area2D"]
+position = Vector2(179, 162)
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="okButton" type="Button" parent="goodCat"]
+offset_left = 833.0
+offset_top = 371.0
+offset_right = 977.0
+offset_bottom = 518.0
+theme_override_fonts/font = ExtResource("3_kdubu")
+theme_override_font_sizes/font_size = 40
+text = "ok"
+
+[node name="evilCat" type="CharacterBody2D" parent="."]
+position = Vector2(-580, -242)
+script = ExtResource("2_0hol4")
+
+[node name="EC_Sprite2D" type="Sprite2D" parent="evilCat"]
+position = Vector2(905, 443.5)
+scale = Vector2(0.209913, 0.375648)
+texture = ExtResource("3_q6r6c")
+
+[node name="Area2D" type="Area2D" parent="evilCat" groups=["evilCat"]]
+
+[node name="EC_CollisionShape2D" type="CollisionShape2D" parent="evilCat/Area2D"]
+position = Vector2(905, 444)
+shape = SubResource("RectangleShape2D_kdubu")
+
+[connection signal="area_entered" from="goodCat/Area2D" to="goodCat" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="goodCat/okButton" to="goodCat" method="_on_ok_button_pressed"]
