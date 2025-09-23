@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr5icvo8paoev"]
+
+[ext_resource type="Texture2D" uid="uid://bcpa2w6er7y4i" path="res://JPG_CATS/GoodJobCat.jpg" id="1_te45m"]
+[ext_resource type="Script" uid="uid://b8eq34cs26ec7" path="res://button.gd" id="2_74trw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74trw"]
+texture = ExtResource("1_te45m")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74trw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jve3f"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_74trw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74trw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jve3f")
+script = ExtResource("2_74trw")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

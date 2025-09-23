@@ -6,4 +6,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_ok_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://GoodJobCat.tscn")

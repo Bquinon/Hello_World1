@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl0ljig4mva4"]
+[gd_scene load_steps=9 format=3 uid="uid://cl0ljig4mva4"]
 
 [ext_resource type="Texture2D" uid="uid://dd6ffydbkryd" path="res://JPG_CATS/cat_scary.jpg" id="1_x3knq"]
+[ext_resource type="Script" uid="uid://b8eq34cs26ec7" path="res://button.gd" id="2_6brm5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6brm5"]
 texture = ExtResource("1_x3knq")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6brm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ski7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rtml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqqkh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1tpc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,3 +32,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6brm5")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6brm5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ski7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5rtml")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sqqkh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k1tpc")
+script = ExtResource("2_6brm5")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
