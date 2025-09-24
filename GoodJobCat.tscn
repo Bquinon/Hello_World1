@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr5icvo8paoev"]
+[gd_scene load_steps=9 format=3 uid="uid://cr5icvo8paoev"]
 
 [ext_resource type="Texture2D" uid="uid://bcpa2w6er7y4i" path="res://JPG_CATS/GoodJobCat.jpg" id="1_te45m"]
 [ext_resource type="Script" uid="uid://b8eq34cs26ec7" path="res://button.gd" id="2_74trw"]
+[ext_resource type="FontFile" uid="uid://hwu2m6v3u16x" path="res://GrapeSoda.ttf" id="3_3v2go"]
+[ext_resource type="AudioStream" uid="uid://06ri7pv4b3d8" path="res://Sounds/winCat.wav" id="3_jve3f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74trw"]
 texture = ExtResource("1_te45m")
@@ -9,6 +11,9 @@ texture = ExtResource("1_te45m")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74trw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jve3f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvele"]
+bg_color = Color(0.196078, 0.239216, 0.223529, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,5 +42,23 @@ grow_vertical = 2
 theme_override_styles/hover = SubResource("StyleBoxEmpty_74trw")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jve3f")
 script = ExtResource("2_74trw")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_right = 220.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_3v2go")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_nvele")
+text = "Whow ur fast"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jve3f")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

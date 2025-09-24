@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl0ljig4mva4"]
+[gd_scene load_steps=10 format=3 uid="uid://cl0ljig4mva4"]
 
 [ext_resource type="Texture2D" uid="uid://dd6ffydbkryd" path="res://JPG_CATS/cat_scary.jpg" id="1_x3knq"]
 [ext_resource type="Script" uid="uid://b8eq34cs26ec7" path="res://button.gd" id="2_6brm5"]
+[ext_resource type="AudioStream" uid="uid://cfn7ecvvhl4bk" path="res://Sounds/Untitled.wav" id="3_4ski7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6brm5"]
 texture = ExtResource("1_x3knq")
@@ -46,5 +47,10 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_5rtml")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_sqqkh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_k1tpc")
 script = ExtResource("2_6brm5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ski7")
+volume_db = 24.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
